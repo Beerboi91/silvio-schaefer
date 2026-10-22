@@ -2157,6 +2157,9 @@
       background: var(--color-accent);
     }
 
+        .desc-mobile {
+      display: none;
+    }
     .orbital-card .card-desc {
       font-size: 13px;
       line-height: 1.6;
@@ -4153,50 +4156,56 @@
         text-align: left !important;
       }
 
-      /* Beat 2: Der ganzheitliche Ansatz (5 Stellschrauben Swipe-Carousel) */
+      /* Beat 2: Der ganzheitliche Ansatz (Compact 2-Column Bento Grid) */
       .story-beat--holistic {
         width: 100% !important;
         max-width: 100% !important;
+        padding: 72px 0 68px 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
       }
-      .holistic-header,
-      .roadmap-header {
-        margin-bottom: 34px !important;
-        align-items: center !important;
-        text-align: center !important;
+      .holistic-header {
+        margin-bottom: 24px !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
       }
-      .holistic-header .story-title,
-      .roadmap-header .story-title {
-        font-size: clamp(30px, 8.2vw, 38px) !important;
-        line-height: 1.1 !important;
-        letter-spacing: -0.025em !important;
-        text-align: center !important;
+      .holistic-header .minimal-eyebrow {
+        margin-bottom: 12px !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+      }
+      .holistic-header .story-title {
+        font-size: clamp(26px, 7.2vw, 32px) !important;
+        line-height: 1.24 !important;
+        letter-spacing: -0.02em !important;
+        text-align: left !important;
         text-wrap: balance !important;
+        margin-bottom: 10px !important;
       }
-      .holistic-header .story-lead,
-      .roadmap-header .story-lead {
-        font-size: 14px !important;
+      .holistic-header .story-lead {
+        font-size: 14.5px !important;
         line-height: 1.62 !important;
-        margin: 14px auto 0 auto !important;
-        text-align: center !important;
-        max-width: 380px !important;
+        margin: 0 !important;
+        text-align: left !important;
+        max-width: 100% !important;
+        color: var(--text-secondary) !important;
       }
       .holistic-orbital-stage {
         width: 100% !important;
-        align-items: center !important;
+        align-items: stretch !important;
       }
+      /* Bento Grid: 2 columns, Card 5 spans both columns */
       .holistic-orbital-stage .orbital-card-track {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 14px !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        padding: 4px 20px 12px 20px !important;
-        -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-        width: calc(100% + 40px) !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
         box-sizing: border-box !important;
       }
       .holistic-orbital-stage .orbital-card-track::-webkit-scrollbar {
@@ -4212,65 +4221,131 @@
         right: auto !important;
         top: auto !important;
         transform: none !important;
-        width: auto !important;
-        min-width: 76vw !important;
-        max-width: 270px !important;
-        min-height: 210px !important;
-        flex-shrink: 0 !important;
-        scroll-snap-align: center !important;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(18, 14, 18, 0.85) 100%) !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        flex-shrink: 1 !important;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(18, 14, 18, 0.92) 100%) !important;
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        border-radius: 0 !important;
-        padding: 24px 20px !important;
+        border-top: 1.5px solid rgba(255, 109, 41, 0.35) !important;
+        border-radius: 4px !important;
+        padding: 18px 16px 16px 16px !important;
         box-sizing: border-box !important;
-        text-align: center !important;
+        text-align: left !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: space-between !important;
-        align-items: center !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
         margin: 0 !important;
-      }
-      .orbital-card:hover {
-        transform: none !important;
+        -webkit-tap-highlight-color: transparent;
+        transition: border-color 0.25s ease, background-color 0.25s ease !important;
       }
       .orbital-card:active {
         transform: scale(0.98) !important;
+        border-color: rgba(255, 109, 41, 0.5) !important;
+      }
+      /* Card 5 Bento Span 2 Columns */
+      .orbital-card--5 {
+        grid-column: 1 / -1 !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 16px !important;
+        padding: 18px 18px !important;
       }
       .orbital-card .card-header {
-        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
         width: 100% !important;
-        margin-bottom: 16px !important;
+        margin-bottom: 0 !important;
       }
+      .orbital-card--5 .card-header {
+        width: auto !important;
+        flex-shrink: 0 !important;
+      }
+      /* Subtle numbered pill indicator */
+      .orbital-card--1 .card-header::after { content: "01"; font-family: var(--font-mono, monospace); font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.3); }
+      .orbital-card--2 .card-header::after { content: "02"; font-family: var(--font-mono, monospace); font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.3); }
+      .orbital-card--3 .card-header::after { content: "03"; font-family: var(--font-mono, monospace); font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.3); }
+      .orbital-card--4 .card-header::after { content: "04"; font-family: var(--font-mono, monospace); font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.3); }
+      .orbital-card--5 .card-header::after { display: none !important; }
+      
       .orbital-card .card-icon {
-        width: 40px !important;
-        height: 40px !important;
-        border-radius: 0 !important;
+        width: 34px !important;
+        height: 34px !important;
+        border-radius: 4px !important;
+        background: rgba(255, 109, 41, 0.09) !important;
+        border: 1px solid rgba(255, 109, 41, 0.25) !important;
+        color: var(--color-accent) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         margin: 0 !important;
+        flex-shrink: 0 !important;
       }
       .orbital-card .card-icon svg {
-        width: 18px !important;
-        height: 18px !important;
+        width: 17px !important;
+        height: 17px !important;
       }
       .orbital-card .card-body {
-        align-items: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
+        gap: 5px !important;
+      }
+      .orbital-card--5 .card-body {
+        flex: 1 !important;
       }
       .orbital-card .card-title {
-        font-size: 17px !important;
-        font-weight: 700 !important;
+        font-size: 15.5px !important;
+        font-weight: 800 !important;
         line-height: 1.25 !important;
-        margin-bottom: 8px !important;
-        padding-top: 12px !important;
-        text-align: center !important;
+        color: #FFFFFF !important;
+        margin: 0 !important;
+        padding-top: 0 !important;
+        text-align: left !important;
       }
       .orbital-card .card-title::before {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+        display: none !important;
       }
       .orbital-card .card-desc {
-        font-size: 13.5px !important;
-        line-height: 1.58 !important;
+        font-size: 12px !important;
+        line-height: 1.45 !important;
         color: var(--text-secondary) !important;
-        text-align: center !important;
+        margin: 0 !important;
+        text-align: left !important;
+      }
+      .desc-desktop {
+        display: none !important;
+      }
+      .desc-mobile {
+        display: block !important;
+      }
+      
+      /* Header helper for roadmap beat */
+      .roadmap-header {
+        margin-bottom: 34px !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+      .roadmap-header .story-title {
+        font-size: clamp(26px, 7.2vw, 32px) !important;
+        line-height: 1.24 !important;
+        letter-spacing: -0.02em !important;
+        text-align: left !important;
+        text-wrap: balance !important;
+      }
+      .roadmap-header .story-lead {
+        font-size: 14.5px !important;
+        line-height: 1.62 !important;
+        margin: 10px 0 0 0 !important;
+        text-align: left !important;
+        max-width: 100% !important;
+        color: var(--text-secondary) !important;
       }
 
       /* Beat 3: Prime Code 10-Week Roadmap (Horizontal 3-Phase Swipe Deck on Mobile) */
@@ -5226,7 +5301,10 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">Blutanalyse</h4>
-                <p class="card-desc">Labordiagnostik als Fundament. Kein Raten, kein Bauchgefühl: nur deine Werte.</p>
+                <p class="card-desc">
+                  <span class="desc-desktop">Labordiagnostik als Fundament. Kein Raten, kein Bauchgefühl: nur deine Werte.</span>
+                  <span class="desc-mobile">Echte Laborwerte statt Bauchgefühl.</span>
+                </p>
               </div>
             </div>
 
@@ -5241,7 +5319,10 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">Training</h4>
-                <p class="card-desc">Nicht mehr, nicht härter. Das Richtige, zur richtigen Zeit, basierend auf deinen Werten.</p>
+                <p class="card-desc">
+                  <span class="desc-desktop">Nicht mehr, nicht härter. Das Richtige, zur richtigen Zeit, basierend auf deinen Werten.</span>
+                  <span class="desc-mobile">Hormongesteuert zur richtigen Zeit.</span>
+                </p>
               </div>
             </div>
 
@@ -5264,7 +5345,10 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">Ernährung</h4>
-                <p class="card-desc">Ein modularer Baukasten ohne Kalorienzirkus: für Zuhause, Hotel und Geschäftsessen.</p>
+                <p class="card-desc">
+                  <span class="desc-desktop">Ein modularer Baukasten ohne Kalorienzirkus: für Zuhause, Hotel und Geschäftsessen.</span>
+                  <span class="desc-mobile">Modularer Baukasten für Alltag & Business.</span>
+                </p>
               </div>
             </div>
 
@@ -5279,7 +5363,10 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">Schlaf</h4>
-                <p class="card-desc">Weil schlechter Schlaf dein Testosteron killt. Jede Nacht.</p>
+                <p class="card-desc">
+                  <span class="desc-desktop">Weil schlechter Schlaf dein Testosteron killt. Jede Nacht.</span>
+                  <span class="desc-mobile">Tiefschlaf für echte Regeneration.</span>
+                </p>
               </div>
             </div>
 
@@ -5294,7 +5381,10 @@
               </div>
               <div class="card-body">
                 <h4 class="card-title">Stressmanagement</h4>
-                <p class="card-desc">Cortisol runter, Klarheit rauf. Chronischer Stress ist der schnellste Weg, dein Testosteron zu versenken.</p>
+                <p class="card-desc">
+                  <span class="desc-desktop">Cortisol runter, Klarheit rauf. Chronischer Stress ist der schnellste Weg, dein Testosteron zu versenken.</span>
+                  <span class="desc-mobile">Cortisol senken, damit dein Testosteron steigen kann.</span>
+                </p>
               </div>
             </div>
           </div>
