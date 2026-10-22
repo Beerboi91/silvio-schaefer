@@ -1273,6 +1273,9 @@
       transition: color 0.5s ease;
     }
 
+        .point-mobile-item {
+      display: none;
+    }
     .minimal-point .point-text em {
       font-style: italic;
       color: rgba(255, 255, 255, 0.6);
@@ -3884,15 +3887,36 @@
       .minimal-power-col {
         display: none !important;
       }
+      /* 3. Status Quo: Simple Editorial Aufzählung with Smooth Wandering Line (No Boxes) */
       .points-track-wrapper {
-        display: none !important;
+        display: block !important;
+        position: absolute !important;
+        left: 2px !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 2px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-radius: 2px !important;
+        pointer-events: none !important;
+      }
+      .wandering-line {
+        position: absolute !important;
+        top: 0 !important;
+        left: -1px !important;
+        width: 4px !important;
+        border-radius: 2px !important;
+        background: var(--color-accent) !important;
+        box-shadow: 0 0 16px rgba(255, 109, 41, 0.95), 0 0 6px #FF6D29 !important;
+        pointer-events: none !important;
+        will-change: transform, height !important;
       }
       .minimal-points-col {
+        position: relative !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 16px !important;
+        gap: 32px !important;
         overflow: visible !important;
-        padding: 0 !important;
+        padding: 6px 0 6px 26px !important;
         width: 100% !important;
         margin: 0 !important;
         box-sizing: border-box !important;
@@ -3902,56 +3926,67 @@
         display: none !important;
       }
       .minimal-point {
-        position: relative;
+        position: relative !important;
         width: 100% !important;
         max-width: 100% !important;
         min-width: 0 !important;
         flex-shrink: 0;
-        opacity: 1 !important;
-        transform: none !important;
-        cursor: default;
-        padding: 24px 20px 22px 20px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.01) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-left: 3px solid var(--color-accent) !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 0;
-        box-sizing: border-box;
-        text-align: left;
-        justify-content: flex-start;
+        padding: 4px 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        cursor: pointer !important;
+        -webkit-tap-highlight-color: transparent;
+        transition: opacity 0.3s ease !important;
       }
       .minimal-point::before {
-        content: "SYMPTOM 0" attr(data-step);
-        display: inline-block;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        color: var(--color-accent);
-        margin-bottom: 10px;
-        text-transform: uppercase;
+        display: none !important;
       }
       .minimal-point .point-content {
-        align-items: flex-start;
-        text-align: left;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
       }
-      .minimal-point .point-title {
-        font-size: 18px;
-        font-weight: 800;
-        line-height: 1.25;
-        margin-bottom: 10px;
-        color: #FFFFFF;
-        text-align: left;
-      }
-      .minimal-point.active .point-title {
-        color: #FFFFFF;
-      }
+      .minimal-point .point-title,
       .minimal-point .point-text {
-        font-size: 14px;
-        line-height: 1.6;
-        font-weight: 400;
-        color: var(--text-secondary);
-        max-width: 100%;
-        text-align: left;
+        display: none !important;
+      }
+      .point-mobile-item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: baseline !important;
+        gap: 14px !important;
+        width: 100% !important;
+      }
+      .point-mobile-num {
+        font-family: var(--font-mono, monospace);
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.08em !important;
+        color: var(--color-accent) !important;
+        flex-shrink: 0 !important;
+        line-height: 1.5 !important;
+        opacity: 0.85;
+      }
+      .point-mobile-sentence {
+        font-size: 15.5px !important;
+        line-height: 1.55 !important;
+        font-weight: 500 !important;
+        color: #D6D2CC !important;
+        margin: 0 !important;
+        letter-spacing: -0.01em !important;
+        text-align: left !important;
+        transition: color 0.3s ease !important;
+      }
+      .minimal-point.active .point-mobile-sentence {
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+      }
+      .minimal-point.active .point-mobile-num {
+        opacity: 1 !important;
+        color: var(--color-accent) !important;
       }
 
       /* 4. Prime Code Section (Centered Editorial Flow with Generous Chapter Spacing) */
@@ -4979,6 +5014,10 @@
                 Du wachst nach 7 bis 8 Stunden Schlaf auf, fühlst dich aber wie gerädert. Der erste Kaffee ist
                 längst kein Genuss mehr, sondern die zwingende Notwendigkeit, um überhaupt in die Gänge zu kommen.
               </p>
+              <div class="point-mobile-item">
+                <span class="point-mobile-num">01</span>
+                <p class="point-mobile-sentence">Du wachst nach 8 Stunden Schlaf wie gerädert auf und brauchst den ersten Kaffee nur noch, um überhaupt zu funktionieren.</p>
+              </div>
             </div>
           </div>
 
@@ -4991,6 +5030,10 @@
                 Heute musst du dich ab 14 Uhr durch Termine kämpfen, während der Kopf träge wird und die
                 Konzentration schwindet.
               </p>
+              <div class="point-mobile-item">
+                <span class="point-mobile-num">02</span>
+                <p class="point-mobile-sentence">Ab 14 Uhr kämpfst du gegen bleierne Müdigkeit und Brain Fog, statt mit deinem gewohnten Drive durchzuziehen.</p>
+              </div>
             </div>
           </div>
 
@@ -5003,6 +5046,10 @@
                 bleibt, der Körper verliert seine gewohnte Härte und nach dem Sport brauchst du Tage statt Stunden
                 zur Regeneration.
               </p>
+              <div class="point-mobile-item">
+                <span class="point-mobile-num">03</span>
+                <p class="point-mobile-sentence">Trotz Disziplin bei Training und Ernährung setzt Bauchfett an und dein Körper braucht Tage statt Stunden zur Regeneration.</p>
+              </div>
             </div>
           </div>
 
@@ -5015,6 +5062,10 @@
                 selbst kleine Konflikte oder Verzögerungen erzeugen innere Unruhe, und die gewohnte gelassene
                 Souveränität weicht ständiger Anspannung.
               </p>
+              <div class="point-mobile-item">
+                <span class="point-mobile-num">04</span>
+                <p class="point-mobile-sentence">Deine Stresstoleranz sinkt spürbar und selbst kleine Reibungen im Alltag rauben dir die gewohnte Gelassenheit.</p>
+              </div>
             </div>
           </div>
 
@@ -5027,6 +5078,10 @@
                   Normbereich.“</em> Doch der statistische Normbereich vergleicht dich mit Kranken und 80-Jährigen,
                 nicht mit deinem persönlichen Peak-Level.
               </p>
+              <div class="point-mobile-item">
+                <span class="point-mobile-num">05</span>
+                <p class="point-mobile-sentence">Dein Arzt sagt „alles im Normbereich“, doch du spürst jeden Tag, dass du meilenweit von deinem echten Peak-Level entfernt bist.</p>
+              </div>
             </div>
           </div>
 
@@ -5700,6 +5755,10 @@
 
     let targetProgress = 0;
     let smoothProgress = 0;
+        window.addEventListener('resize', () => {
+      smoothLineTop = null;
+      smoothLineHeight = null;
+    });
     let smoothLineTop = null;
     let smoothLineHeight = null;
 
@@ -5807,8 +5866,8 @@
       const lastCenter = p5Rect ? (p5Rect.top + p5Rect.height * 0.5) : 0;
       const storyRect = story ? story.getBoundingClientRect() : null;
 
-      // 1. Proximity illumination for the 5 points & wandering line (Desktop only)
-      if (!isMobile && trackWrapper && points.length > 0) {
+      // 1. Proximity illumination for the 5 points & wandering line (Desktop & Mobile)
+      if (trackWrapper && points.length > 0) {
         const trackRect = trackWrapper.getBoundingClientRect();
         let closestDist = Infinity;
         let activeIndex = 0;
