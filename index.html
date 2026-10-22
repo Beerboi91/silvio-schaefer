@@ -4572,11 +4572,72 @@
         overflow: hidden !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
       }
+      /* Architectural Segmented Ladebalken & Navigation matching Desktop 1:1 */
       .compare-nav-bar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        padding: 6px 0 0 0 !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        padding: 4px 0 !important;
+        margin: 0 !important;
+      }
+      .compare-nav-btn {
+        width: 28px !important;
+        height: 28px !important;
+        border-radius: 0 !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid rgba(255, 255, 255, 0.09) !important;
+        color: rgba(255, 255, 255, 0.55) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        padding: 0 !important;
+        position: relative !important;
+      }
+      /* Generous touch target for mobile tapping */
+      .compare-nav-btn::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: -10px !important;
+      }
+      .compare-nav-btn svg {
+        width: 14px !important;
+        height: 14px !important;
+      }
+      .compare-dots-track {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: 100% !important;
+      }
+      .compare-dot {
+        flex: 1 !important;
+        height: 2px !important;
+        border-radius: 0 !important;
+        background: rgba(255, 255, 255, 0.12) !important;
+        border: none !important;
+        padding: 0 !important;
+        position: relative !important;
+        cursor: pointer !important;
+        transition: background-color 0.25s ease !important;
+      }
+      .compare-dot::after {
+        content: "" !important;
+        position: absolute !important;
+        top: -10px !important;
+        bottom: -10px !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
+      .compare-dot.active {
+        background: var(--color-accent) !important;
+        box-shadow: none !important;
       }
       /* Videos Column: Stacked vertically under each other */
       .results-videos-col {
@@ -4841,10 +4902,6 @@
       }
       .contact-disclaimer {
         text-align: center;
-      }
-      .compare-nav-btn {
-        width: 44px !important;
-        height: 44px !important;
       }
 
       /* 8. Site Footer */
