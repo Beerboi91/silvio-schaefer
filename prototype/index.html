@@ -4051,24 +4051,36 @@
         display: block !important;
       }
 
-      /* Beat 1: Die Ursache (Centered Mobile Manifesto) */
+      /* Beat 1: Die Ursache (Spacious & Clean Mobile Manifesto) */
       .story-beat--gap {
         width: 100% !important;
+        padding: 72px 0 68px 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+      .story-beat--gap .minimal-eyebrow {
+        margin-bottom: 12px !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
       }
       .story-beat--gap .story-title {
-        font-size: clamp(30px, 8.2vw, 38px) !important;
-        line-height: 1.1 !important;
-        letter-spacing: -0.025em !important;
-        margin-bottom: 36px !important;
-        text-align: center !important;
+        font-size: clamp(26px, 7.2vw, 32px) !important;
+        line-height: 1.24 !important;
+        letter-spacing: -0.02em !important;
+        margin-bottom: 28px !important;
+        text-align: left !important;
         text-wrap: balance !important;
       }
       .gap-contrast-row {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
         border: none !important;
         background: transparent !important;
-        text-align: center !important;
+        text-align: left !important;
       }
       .gap-contrast-row:hover .gap-col:not(:hover) {
         opacity: 1 !important;
@@ -4076,35 +4088,69 @@
       }
       .gap-col,
       .gap-col + .gap-col {
+        position: relative !important;
         padding: 26px 22px 24px 22px !important;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(18, 14, 18, 0.85) 100%) !important;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(18, 14, 18, 0.9) 100%) !important;
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-left: 2.5px solid var(--color-accent) !important;
         border-radius: 0 !important;
-        align-items: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        gap: 8px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
       }
       .gap-col:hover {
         transform: none !important;
       }
+      /* Warning icon sits naturally at the top-left of the card - never overlapping text */
       .gap-warn-icon {
-        top: 16px !important;
-        right: 16px !important;
-        width: 32px !important;
-        height: 32px !important;
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 4px !important;
+        margin-bottom: 4px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(255, 109, 41, 0.1) !important;
+        border: 1px solid rgba(255, 109, 41, 0.3) !important;
+        color: var(--color-accent) !important;
+        flex-shrink: 0 !important;
       }
       .gap-warn-icon svg {
-        width: 15px !important;
-        height: 15px !important;
+        width: 17px !important;
+        height: 17px !important;
       }
       .gap-role {
         padding-right: 0 !important;
+        font-size: 11px !important;
+        letter-spacing: 0.14em !important;
+        font-weight: 700 !important;
+        color: var(--color-accent) !important;
+        text-transform: uppercase !important;
+        margin: 0 !important;
+        text-align: left !important;
       }
       .gap-heading {
-        font-size: 19px !important;
+        font-size: 20px !important;
+        line-height: 1.25 !important;
+        font-weight: 800 !important;
+        color: #FFFFFF !important;
+        margin: 2px 0 0 0 !important;
+        text-align: left !important;
       }
       .gap-desc {
-        font-size: 14px !important;
+        font-size: 14.5px !important;
         line-height: 1.62 !important;
-        max-width: 380px !important;
+        color: var(--text-secondary) !important;
+        margin: 4px 0 0 0 !important;
+        max-width: 100% !important;
+        text-align: left !important;
       }
 
       /* Beat 2: Der ganzheitliche Ansatz (5 Stellschrauben Swipe-Carousel) */
