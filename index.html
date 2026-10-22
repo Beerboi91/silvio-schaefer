@@ -4043,7 +4043,20 @@
         align-items: center !important;
         margin: 0 !important;
         padding: 84px 0 !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-top: none !important;
+      }
+      /* Luminous Glow Divider between sections on mobile */
+      .story-beat > .section-horizon-wrap,
+      .site-footer > .section-horizon-wrap {
+        display: block !important;
+      }
+      .section-horizon-line {
+        transform: scaleX(1) !important;
+        opacity: 1 !important;
+      }
+      .section-horizon-glow {
+        transform: translateX(-50%) scaleX(1) !important;
+        opacity: 1 !important;
       }
 
       /* Beat 1: Die Ursache (Centered Mobile Manifesto) */
@@ -4584,11 +4597,13 @@
 
       /* 8. Site Footer */
       .site-footer {
-        padding: 32px 20px max(24px, env(safe-area-inset-bottom)) 20px;
+        position: relative !important;
+        padding: 48px 20px max(24px, env(safe-area-inset-bottom)) 20px;
         width: 100%;
         max-width: 100vw;
         overflow-x: clip;
         box-sizing: border-box;
+        border-top: none !important;
       }
       .footer-container {
         width: 100%;
@@ -4704,15 +4719,18 @@
 
     .section-horizon-line {
       position: absolute;
-      inset: 0;
-      height: 1px;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 1.5px;
       background: linear-gradient(90deg, 
         transparent 0%, 
-        rgba(255, 255, 255, 0.05) 15%, 
-        rgba(255, 109, 41, 0.85) 50%, 
-        rgba(255, 255, 255, 0.05) 85%, 
+        rgba(255, 109, 41, 0.08) 10%, 
+        rgba(255, 125, 55, 0.95) 50%, 
+        rgba(255, 109, 41, 0.08) 90%, 
         transparent 100%
       );
+      box-shadow: 0 0 12px rgba(255, 109, 41, 0.65), 0 0 3px rgba(255, 140, 70, 0.9);
       transform: scaleX(0);
       transform-origin: center;
       transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -4720,16 +4738,22 @@
 
     .section-horizon-glow {
       position: absolute;
-      top: -14px;
+      top: -16px;
       left: 50%;
       transform: translateX(-50%) scaleX(0);
-      width: min(650px, 85vw);
-      height: 28px;
-      background: radial-gradient(ellipse at center, rgba(255, 109, 41, 0.45) 0%, rgba(255, 109, 41, 0.06) 50%, transparent 72%);
-      filter: blur(8px);
+      width: min(650px, 90vw);
+      height: 32px;
+      background: radial-gradient(ellipse at center, rgba(255, 109, 41, 0.48) 0%, rgba(255, 109, 41, 0.12) 48%, transparent 74%);
+      filter: blur(9px);
       opacity: 0;
       transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
       pointer-events: none;
+    }
+
+    /* Hide story beat separators on desktop so pinned stage remains 100% clean */
+    .story-beat > .section-horizon-wrap,
+    .site-footer > .section-horizon-wrap {
+      display: none;
     }
 
     [data-reveal="horizon"].is-revealed .section-horizon-line {
@@ -5104,6 +5128,7 @@
 
       <!-- Beat 1: Die Ursache (FULL-STAGE MANIFESTO) -->
       <div class="story-beat story-beat--gap" data-start="0.00" data-end="0.175">
+        <div class="section-horizon-wrap" data-reveal="horizon"><div class="section-horizon-line"></div><div class="section-horizon-glow"></div></div>
         <div class="minimal-eyebrow" style="color: var(--color-accent); margin-bottom: 12px;">DIE URSACHE · WARUM DU DICH SO FÜHLST</div>
         <h2 class="story-title">Es ist keine mangelnde Disziplin.<br><span style="color: var(--color-accent);">Dein System läuft im Notbetrieb.</span></h2>
 
@@ -5137,6 +5162,7 @@
 
       <!-- Beat 2: Das System — Die 5 Stellschrauben (Architectural 5-Column Monolith Gallery) -->
       <div class="story-beat story-beat--holistic" id="ansatz" data-start="0.165" data-end="0.34">
+        <div class="section-horizon-wrap" data-reveal="horizon"><div class="section-horizon-line"></div><div class="section-horizon-glow"></div></div>
         
         <div class="holistic-header">
           <div class="minimal-eyebrow" style="color: var(--color-accent); margin-bottom: 10px;">DER GANZHEITLICHE ANSATZ</div>
@@ -5242,6 +5268,7 @@
 
       <!-- Beat 3: Der Ablauf — Prime Code™ 10-Wochen-Fahrplan auf einen Blick + CTA Switch -->
       <div class="story-beat story-beat--roadmap" id="programm" data-start="0.33" data-end="0.505">
+        <div class="section-horizon-wrap" data-reveal="horizon"><div class="section-horizon-line"></div><div class="section-horizon-glow"></div></div>
         <div class="roadmap-header">
           <div class="minimal-eyebrow" style="color: var(--color-accent); margin-bottom: 10px;">DAS PROGRAMM · PRIME CODE™</div>
           <h2 class="story-title">Dein Weg zurück auf Top-Level.</h2>
@@ -5307,6 +5334,7 @@
 
       <!-- Beat 4: SOCIAL PROOF & ERGEBNISSE (#ergebnisse) -->
       <div class="story-beat story-beat--results" id="ergebnisse" data-start="0.495" data-end="0.67" aria-label="Ergebnisse & Social Proof">
+        <div class="section-horizon-wrap" data-reveal="horizon"><div class="section-horizon-line"></div><div class="section-horizon-glow"></div></div>
         <div class="results-container">
 
           <!-- 1. Section Header -->
@@ -5448,6 +5476,7 @@
 
       <!-- Beat 5: ÜBER SILVIO (#ueber-silvio) -->
       <div class="story-beat story-beat--authority" id="ueber-silvio" data-start="0.66" data-end="0.835" aria-label="Über Silvio Schäfer">
+        <div class="section-horizon-wrap" data-reveal="horizon"><div class="section-horizon-line"></div><div class="section-horizon-glow"></div></div>
         <div class="authority-container">
 
           <!-- Portrait Media Column -->
@@ -5481,6 +5510,7 @@
 
       <!-- Beat 6: KONTAKT / ERSTGESPRÄCH (#kontakt) -->
       <div class="story-beat story-beat--contact" id="kontakt" data-start="0.825" data-end="1" data-last="1" aria-label="Erstgespräch & Kontakt">
+        <div class="section-horizon-wrap" data-reveal="horizon"><div class="section-horizon-line"></div><div class="section-horizon-glow"></div></div>
         <div class="contact-container">
 
           <!-- Left Column: Copy & Value Proposition -->
@@ -5581,6 +5611,7 @@
        SITE FOOTER
        ============================================================ -->
   <footer class="site-footer" role="contentinfo">
+    <div class="section-horizon-wrap" data-reveal="horizon"><div class="section-horizon-line"></div><div class="section-horizon-glow"></div></div>
     <div class="footer-container">
       <div class="footer-top" data-reveal>
         <div class="footer-brand">
