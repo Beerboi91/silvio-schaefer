@@ -4050,14 +4050,6 @@
       .site-footer > .section-horizon-wrap {
         display: block !important;
       }
-      .section-horizon-line {
-        transform: scaleX(1) !important;
-        opacity: 1 !important;
-      }
-      .section-horizon-glow {
-        transform: translateX(-50%) scaleX(1) !important;
-        opacity: 1 !important;
-      }
 
       /* Beat 1: Die Ursache (Centered Mobile Manifesto) */
       .story-beat--gap {
@@ -4719,18 +4711,15 @@
 
     .section-horizon-line {
       position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 1.5px;
+      inset: 0;
+      height: 1px;
       background: linear-gradient(90deg, 
         transparent 0%, 
-        rgba(255, 109, 41, 0.08) 10%, 
-        rgba(255, 125, 55, 0.95) 50%, 
-        rgba(255, 109, 41, 0.08) 90%, 
+        rgba(255, 255, 255, 0.05) 15%, 
+        rgba(255, 109, 41, 0.85) 50%, 
+        rgba(255, 255, 255, 0.05) 85%, 
         transparent 100%
       );
-      box-shadow: 0 0 12px rgba(255, 109, 41, 0.65), 0 0 3px rgba(255, 140, 70, 0.9);
       transform: scaleX(0);
       transform-origin: center;
       transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -4738,13 +4727,13 @@
 
     .section-horizon-glow {
       position: absolute;
-      top: -16px;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%) scaleX(0);
-      width: min(650px, 90vw);
-      height: 32px;
-      background: radial-gradient(ellipse at center, rgba(255, 109, 41, 0.48) 0%, rgba(255, 109, 41, 0.12) 48%, transparent 74%);
-      filter: blur(9px);
+      width: min(650px, 85vw);
+      height: 28px;
+      background: radial-gradient(ellipse at center, rgba(255, 109, 41, 0.45) 0%, rgba(255, 109, 41, 0.06) 50%, transparent 72%);
+      filter: blur(8px);
       opacity: 0;
       transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
       pointer-events: none;
