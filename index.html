@@ -4755,16 +4755,36 @@
       }
       .authority-media {
         width: 100% !important;
-        max-width: 240px !important;
-        margin: 0 !important;
-        align-self: flex-start !important;
+        max-width: 100% !important;
+        margin: 0 0 6px 0 !important;
+        align-self: stretch !important;
       }
       .authority-image-card {
         width: 100% !important;
         max-width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
         border-radius: 4px !important;
         border: 1px solid rgba(255, 255, 255, 0.08) !important;
         overflow: hidden !important;
+        position: relative !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35) !important;
+      }
+      .authority-img {
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: cover !important;
+        object-position: center top !important;
+        display: block !important;
+      }
+      .authority-image-card::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(180deg, transparent 65%, rgba(13, 9, 12, 0.55) 100%) !important;
+        pointer-events: none !important;
       }
       .authority-content {
         width: 100% !important;
@@ -5710,9 +5730,9 @@
             <div class="comparison-stage">
               <div class="comparison-card" id="comparisonCard">
                 <!-- Background: Before -->
-                <div class="compare-layer compare-layer--before" id="compareLayerBefore" style="background-image: url('../assets/media/transformations/transformation-01.jpg');"></div>
+                <div class="compare-layer compare-layer--before" id="compareLayerBefore" style="background-image: url('assets/media/transformations/transformation-01.jpg');"></div>
                 <!-- Foreground: After, clipped dynamically -->
-                <div class="compare-layer compare-layer--after" id="compareLayerAfter" style="background-image: url('../assets/media/transformations/transformation-01.jpg');"></div>
+                <div class="compare-layer compare-layer--after" id="compareLayerAfter" style="background-image: url('assets/media/transformations/transformation-01.jpg');"></div>
 
                 <!-- Subtle Badges -->
                 <span class="compare-badge compare-badge--before">Vorher</span>
@@ -6459,16 +6479,16 @@
     const compDotsTrack = document.getElementById('compareDotsTrack');
 
     const TRANSFORMATION_PAIRS = [
-      { id: 1, title: "Transformation 01", type: "composite", src: "../assets/media/transformations/transformation-01.jpg" },
-      { id: 2, title: "Transformation 02", type: "composite", src: "../assets/media/transformations/transformation-02.jpg" },
-      { id: 3, title: "Transformation 03", type: "composite", src: "../assets/media/transformations/transformation-03.jpg" },
-      { id: 4, title: "Transformation 04", type: "composite", src: "../assets/media/transformations/transformation-04.jpg" },
-      { id: 5, title: "Transformation 05", type: "composite", src: "../assets/media/transformations/transformation-05.jpg" },
-      { id: 6, title: "Transformation 06", type: "composite", src: "../assets/media/transformations/transformation-06.jpg" },
-      { id: 7, title: "Transformation 07", type: "composite", src: "../assets/media/transformations/transformation-07.jpg" },
-      { id: 8, title: "Transformation 08", type: "composite", src: "../assets/media/transformations/transformation-08.jpg" },
-      { id: 9, title: "Transformation 09", type: "composite", src: "../assets/media/transformations/transformation-09.jpg" },
-      { id: 10, title: "Transformation 10", type: "composite", src: "../assets/media/transformations/transformation-10.jpg" }
+      { id: 1, title: "Transformation 01", type: "composite", src: "assets/media/transformations/transformation-01.jpg" },
+      { id: 2, title: "Transformation 02", type: "composite", src: "assets/media/transformations/transformation-02.jpg" },
+      { id: 3, title: "Transformation 03", type: "composite", src: "assets/media/transformations/transformation-03.jpg" },
+      { id: 4, title: "Transformation 04", type: "composite", src: "assets/media/transformations/transformation-04.jpg" },
+      { id: 5, title: "Transformation 05", type: "composite", src: "assets/media/transformations/transformation-05.jpg" },
+      { id: 6, title: "Transformation 06", type: "composite", src: "assets/media/transformations/transformation-06.jpg" },
+      { id: 7, title: "Transformation 07", type: "composite", src: "assets/media/transformations/transformation-07.jpg" },
+      { id: 8, title: "Transformation 08", type: "composite", src: "assets/media/transformations/transformation-08.jpg" },
+      { id: 9, title: "Transformation 09", type: "composite", src: "assets/media/transformations/transformation-09.jpg" },
+      { id: 10, title: "Transformation 10", type: "composite", src: "assets/media/transformations/transformation-10.jpg" }
     ];
 
     let currentPairIdx = 0;
