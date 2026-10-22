@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silvio Schäfer | Training & Coaching</title>
+
+  <!-- Fonts: Montserrat (Brand Font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #171217;
+      --bg-surface: #1E1A1E;
+      --color-accent: #FF6D29;
+      --color-accent-hover: #ff550a;
+      --text-white: #FFFFFF;
+      --text-secondary: #D4D0D2;
+      --text-muted: #8E898C;
+      --font-brand: 'Montserrat', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-brand);
+      line-height: 1.6;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Full-Screen Hero Container with Silvio Portrait Background */
+    .hero-wrapper {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--bg-dark);
+      background-image: url('../assets/media/newheader.jpeg');
+      background-position: right 70px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    /* Cinematic Vignette & Left + Top Gradient Overlay for perfect head clearance */
+    .hero-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        /* Left dark ramp for typography */
+        linear-gradient(90deg,
+          rgba(23, 18, 23, 1) 0%,
+          rgba(23, 18, 23, 0.97) 35%,
+          rgba(23, 18, 23, 0.68) 54%,
+          rgba(23, 18, 23, 0.15) 75%,
+          rgba(23, 18, 23, 0.0) 100%),
+        /* Deep solid black top bar transitioning softly into the photo */
+        linear-gradient(180deg,
+          rgba(23, 18, 23, 1) 0%,
+          rgba(23, 18, 23, 0.98) 70px,
+          rgba(23, 18, 23, 0.5) 140px,
+          rgba(23, 18, 23, 0) 240px),
+        /* Bottom cinematic fade to seamlessly blend into the next section */
+        linear-gradient(0deg,
+          rgba(23, 18, 23, 1) 0%,
+          rgba(23, 18, 23, 0.92) 80px,
+          rgba(23, 18, 23, 0.5) 180px,
+          rgba(23, 18, 23, 0) 300px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Navigation */
+    header {
+      position: relative;
+      z-index: 10;
+      max-width: 1540px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 32px 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #FFFFFF;
+    }
+
+    .nav-local-link {
+      color: #E6E4E2 !important;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .nav-local-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .nav-cta-btn {
+      background: transparent;
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600 !important;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+
+    .nav-cta-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #FFFFFF;
+    }
+
+    /* Hero Center Stage */
+    .hero-inner {
+      position: relative;
+      z-index: 5;
+      max-width: 1540px;
+      width: 100%;
+      margin: auto;
+      padding: 40px 32px 80px 32px;
+      display: grid;
+      grid-template-columns: minmax(700px, 860px) 1fr;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Clean, impactful Typography */
+    h1.hero-headline {
+      font-size: 64px;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: 0.015em;
+      color: #FFFFFF;
+      margin-bottom: 26px;
+    }
+
+    h1.hero-headline .accent-question {
+      color: var(--color-accent);
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
+    p.hero-subline {
+      font-size: 18px;
+      line-height: 1.7;
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin-bottom: 40px;
+      letter-spacing: 0.01em;
+    }
+
+    /* Primary Action & Secondary Link */
+    .cta-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+
+    /* Smartphone Toggle-Switch CTA Button (Exact Figma Spec) */
+    .btn-toggle-switch {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      width: 480px;
+      height: 64px;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      overflow: hidden;
+      transition: all 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Background track: Idle metallic glass vs Hover bright orange */
+    .btn-toggle-switch .switch-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, #484447 0%, #201c1e 100%);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      transition: all 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+    }
+
+    .btn-toggle-switch:hover .switch-bg {
+      background: #FF6D29;
+      border-color: #FF7B3D;
+      box-shadow: 0 12px 40px rgba(255, 109, 41, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Text Label: Slides gently and changes color */
+    .btn-toggle-switch .switch-text {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      font-size: 19px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      color: #FFFFFF;
+      transition: all 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      text-align: center;
+      padding-left: 60px;
+      /* Space for knob on left */
+      padding-right: 20px;
+    }
+
+    .btn-toggle-switch:hover .switch-text {
+      color: #120e10;
+      font-weight: 400;
+      padding-left: 20px;
+      padding-right: 60px;
+      /* Space for knob on right */
+    }
+
+    /* Slider Knob (Dial) with Power Signet */
+    .btn-toggle-switch .switch-knob {
+      position: absolute;
+      left: 7px;
+      top: 50%;
+      transform: translateY(-50%) rotate(0deg);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #2c282a 0%, #171416 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      transition: all 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-toggle-switch .switch-knob svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: rotate(0deg);
+    }
+
+    /* Idle signet colors */
+    .btn-toggle-switch .switch-knob .signet-circle {
+      fill: #8a8487;
+      transition: fill 0.4s ease;
+    }
+
+    .btn-toggle-switch .switch-knob .signet-bar {
+      fill: #6e676a;
+      transition: fill 0.4s ease;
+    }
+
+    /* Hover State: Knob slides to the right and turns pure white with 360 rotation */
+    .btn-toggle-switch:hover .switch-knob {
+      left: calc(100% - 50px - 7px);
+      background: #FFFFFF;
+      border-color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+      transform: translateY(-50%) rotate(360deg);
+    }
+
+    .btn-toggle-switch:hover .switch-knob svg {
+      transform: rotate(0deg);
+      /* keep icon upright or let it rotate cleanly with knob */
+    }
+
+    .btn-toggle-switch:hover .switch-knob .signet-circle {
+      fill: #161316;
+    }
+
+    .btn-toggle-switch:hover .switch-knob .signet-bar {
+      fill: #FF6D29;
+    }
+
+    .link-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+    }
+
+    .link-secondary:hover {
+      color: #FFFFFF;
+    }
+
+    /* Trust & Methodology Row (Understatement, no kitschy badges) */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+      max-width: 580px;
+    }
+
+    .trust-item {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .trust-item strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .trust-divider {
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 14px;
+    }
+
+    /* Bottom Subtitle Indicator */
+    .hero-footer-anchor {
+      position: relative;
+      z-index: 2;
+      max-width: 1540px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 32px 32px 32px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .coach-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .coach-indicator .indicator-line {
+      width: 36px;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      h1.hero-headline {
+        font-size: 48px;
+      }
+
+      .hero-wrapper {
+        background-position: 70% center;
+      }
+    }
+
+    /* Dynamic Interactive Mouse Glow Layer (Subtle & Refined) */
+    .mouse-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 109, 41, 0.16) 0%, rgba(255, 109, 41, 0.05) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 3;
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+      will-change: transform;
+    }
+
+    /* ============================================================
+       SECTION: VERTICAL FLOW STATUS QUO / STICKY NOBLE POWER BUTTON
+       ============================================================ */
+    .symptom-section-wrapper {
+      position: relative;
+      background-color: var(--bg-dark);
+      overflow: clip;
+      /* Seamless gradient blend extending upwards into the hero */
+      margin-top: -80px;
+      padding-top: 80px;
+    }
+
+    .symptom-section-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(180deg, rgba(23, 18, 23, 0) 0%, rgba(23, 18, 23, 0.8) 50%, rgba(23, 18, 23, 1) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .symptom-section {
+      max-width: 1540px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 120px 32px 180px 32px;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Section Eyebrow / Clean Header */
+    .minimal-section-header {
+      margin-bottom: 110px;
+    }
+
+    .minimal-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+    }
+
+    .minimal-section-title {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      color: #FFFFFF;
+      line-height: 1.15;
+    }
+
+    /* 2-Column Minimal Layout */
+    .minimal-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, 460px) 1fr;
+      gap: 120px;
+      align-items: stretch;
+      position: relative;
+    }
+
+    /* Left: Sticky Centered Power Button */
+    .minimal-power-col {
+      position: relative;
+      height: 100%;
+    }
+
+    .sticky-power-stage {
+      position: sticky;
+      top: calc(50vh - 110px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    /* Refined, breathing ambient backlight glow */
+    .power-ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 109, 41, 0.38) 0%, rgba(255, 109, 41, 0.08) 50%, transparent 70%);
+      filter: blur(24px);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.55;
+      animation: powerBreathing 3.6s ease-in-out infinite;
+      transition: opacity 0.4s ease;
+    }
+
+    @keyframes powerBreathing {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(0.92);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    /* Slimmer Power Icon (220x220) */
+    .power-icon-wrap {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .power-icon-wrap svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* Thin, elegant stroke (5.5px) with flat unrounded butt cut-offs */
+    .power-track {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 5.5px;
+      stroke-linecap: butt;
+    }
+
+    .power-arc {
+      fill: none;
+      stroke: var(--color-accent);
+      stroke-width: 5.5px;
+      stroke-linecap: butt;
+      stroke-dasharray: 408.4;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease, filter 0.4s ease;
+      filter: drop-shadow(0 0 8px rgba(255, 109, 41, 0.35));
+    }
+
+    .power-bar {
+      fill: var(--color-accent);
+      transition: fill 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+      filter: drop-shadow(0 0 8px rgba(255, 109, 41, 0.35));
+    }
+
+    /* Right: Vertically flowing 5 Points with Traveling Accent Line */
+    .minimal-points-col {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 220px;
+      padding: 60px 0 140px 38px;
+    }
+
+    .points-track-wrapper {
+      position: absolute;
+      left: 0;
+      top: 60px;
+      bottom: 140px;
+      width: 4px;
+      pointer-events: none;
+    }
+
+    .wandering-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3.5px;
+      border-radius: 2px;
+      background: var(--color-accent);
+      box-shadow: 0 0 14px rgba(255, 109, 41, 0.8), 0 0 4px #FF6D29;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), height 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 5;
+      will-change: transform, height;
+      pointer-events: none;
+    }
+
+    .minimal-point {
+      display: flex;
+      align-items: stretch;
+      cursor: pointer;
+      opacity: 0.22;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .minimal-point .point-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .minimal-point .point-title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: 0.01em;
+      color: #614032;
+      margin-bottom: 16px;
+      transition: color 0.5s ease;
+    }
+
+    .minimal-point .point-text {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.3);
+      max-width: 620px;
+      font-weight: 400;
+      transition: color 0.5s ease;
+    }
+
+    .minimal-point .point-text em {
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Active Point */
+    .minimal-point.active {
+      opacity: 1;
+      transform: translateX(6px);
+    }
+
+    .minimal-point.active .point-title {
+      color: var(--color-accent);
+    }
+
+    .minimal-point.active .point-text {
+      color: #FFFFFF;
+    }
+
+    .minimal-point.active .point-text em {
+      color: #FFFFFF;
+    }
+
+    /* Conclusion & Bridge */
+    .minimal-conclusion {
+      margin-top: 140px;
+      padding-top: 50px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .conclusion-quote {
+      font-size: 24px;
+      line-height: 1.5;
+      font-weight: 600;
+      color: #FFFFFF;
+      max-width: 820px;
+    }
+
+    .conclusion-quote span {
+      color: var(--color-accent);
+    }
+
+    .minimal-reboot-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--color-accent);
+      color: #FFFFFF;
+      padding: 16px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(255, 109, 41, 0.35);
+    }
+
+    .minimal-reboot-btn:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 109, 41, 0.55);
+    }
+
+    @media (max-width: 900px) {
+      .minimal-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .sticky-power-stage {
+        position: static;
+      }
+      .power-icon-wrap {
+        width: 180px;
+        height: 180px;
+      }
+      .minimal-points-col {
+        gap: 80px;
+      }
+      .minimal-point .point-title {
+        font-size: 28px;
+      }
+    }
+
+    /* ============================================================
+       SECTION: PRIME CODE™ / THE RECHARGING CENTER REACTOR CORE
+       ============================================================ */
+    .prime-section-wrapper {
+      position: relative;
+      background-color: var(--bg-dark);
+      padding: 140px 32px 180px 32px;
+      overflow: clip;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Deep Radial Atmosphere behind Center Core */
+    .prime-section-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 220px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 109, 41, 0.1) 0%, rgba(255, 109, 41, 0.02) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .prime-container {
+      max-width: 1540px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Section Header */
+    .prime-header {
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto 60px auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .prime-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    .prime-title {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .prime-title .accent-text {
+      color: var(--color-accent);
+    }
+
+    .prime-lead {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Center Stage: The Reactor Core (Silvio Power Button in Center) */
+    .prime-reactor-stage {
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      margin: 0 auto 70px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .reactor-core-outer {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    /* Multi-layered breathing ambient backlight glow */
+    .reactor-ambient-aura {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 109, 41, 0.45) 0%, rgba(255, 109, 41, 0.12) 48%, transparent 70%);
+      filter: blur(28px);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.75;
+      transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: reactorBreathing 3.4s ease-in-out infinite;
+    }
+
+    @keyframes reactorBreathing {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(0.94);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.08);
+        opacity: 0.95;
+      }
+    }
+
+    /* Reactor SVG Wrap */
+    .reactor-core-svg-wrap {
+      position: relative;
+      z-index: 2;
+      width: 220px;
+      height: 220px;
+    }
+
+    .reactor-core-svg-wrap svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .reactor-track {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.08);
+      stroke-width: 5.5px;
+      stroke-linecap: butt;
+    }
+
+    .reactor-arc {
+      fill: none;
+      stroke: var(--color-accent);
+      stroke-width: 5.5px;
+      stroke-linecap: butt;
+      stroke-dasharray: 408.4;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.75s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease, filter 0.4s ease;
+      filter: drop-shadow(0 0 12px rgba(255, 109, 41, 0.5));
+    }
+
+    .reactor-bar {
+      fill: var(--color-accent);
+      transition: fill 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+      filter: drop-shadow(0 0 12px rgba(255, 109, 41, 0.5));
+    }
+
+    /* HUD Display underneath Core */
+    .reactor-hud-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .reactor-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 109, 41, 0.08);
+      border: 1px solid rgba(255, 109, 41, 0.28);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      box-shadow: 0 0 20px rgba(255, 109, 41, 0.12);
+      transition: all 0.4s ease;
+    }
+
+    .reactor-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      box-shadow: 0 0 10px var(--color-accent);
+      animation: statusPulse 1.8s infinite;
+    }
+
+    @keyframes statusPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Selector Pills */
+    .reactor-selector-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .reactor-pill {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-brand);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+    }
+
+    .reactor-pill:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .reactor-pill.active {
+      background: var(--color-accent);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(255, 109, 41, 0.4);
+    }
+
+    /* 3-Pillars Cards Grid */
+    .prime-grid {
+      position: relative;
+      z-index: 3;
+      max-width: 1540px;
+      margin: 0 auto 80px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .prime-card {
+      position: relative;
+      background: linear-gradient(180deg, #1f1a1f 0%, #171217 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 44px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .prime-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(255, 109, 41, 0.5) 0%, rgba(255, 255, 255, 0.06) 40%, transparent 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.2;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .prime-card:hover,
+    .prime-card.active {
+      transform: translateY(-8px);
+      border-color: rgba(255, 109, 41, 0.45);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 32px rgba(255, 109, 41, 0.12);
+    }
+
+    .prime-card:hover::before,
+    .prime-card.active::before {
+      opacity: 1;
+    }
+
+    .card-top {
+      margin-bottom: 24px;
+    }
+
+    .card-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
+    }
+
+    .card-desc {
+      font-size: 15px;
+      line-height: 1.68;
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .card-features {
+      list-style: none;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #FFFFFF;
+      line-height: 1.5;
+    }
+
+    .card-feature-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--color-accent);
+      margin-top: 2px;
+    }
+
+    .card-energy-meter {
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .meter-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .meter-val {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .meter-bar-track {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .meter-bar-fill {
+      height: 100%;
+      background: var(--color-accent);
+      border-radius: 9999px;
+      box-shadow: 0 0 8px rgba(255, 109, 41, 0.6);
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Bottom Conversion CTA Banner */
+    .prime-cta-banner {
+      position: relative;
+      z-index: 3;
+      max-width: 1540px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(34, 25, 33, 0.9) 0%, rgba(23, 18, 23, 0.98) 100%);
+      border: 1px solid rgba(255, 109, 41, 0.25);
+      border-radius: 20px;
+      padding: 56px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 109, 41, 0.08);
+    }
+
+    .cta-banner-text h3 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .cta-banner-text p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    .cta-banner-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--color-accent);
+      color: #FFFFFF;
+      padding: 18px 38px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(255, 109, 41, 0.35);
+      white-space: nowrap;
+    }
+
+    .cta-banner-btn:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 109, 41, 0.55);
+    }
+
+    @media (max-width: 1100px) {
+      .prime-title {
+        font-size: 38px;
+      }
+      .prime-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .prime-cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 28px;
+      }
+      .cta-banner-text p {
+        margin: 0 auto;
+      }
+      .reactor-selector-pills {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Dynamic Interactive Mouse Glow Layer -->
+  <div id="mouse-glow" class="mouse-glow"></div>
+
+  <div class="hero-wrapper">
+
+    <!-- Header Navigation -->
+    <header>
+      <a href="#" class="brand-logo">
+        <img src="../assets/Signet/4x/orange-white@4x.png" alt="Silvio Schäfer Training & Coaching">
+      </a>
+
+      <nav>
+        <a href="#system">Das System</a>
+        <a href="#ueber-silvio">Über Silvio</a>
+        <a href="#ergebnisse">Ergebnisse</a>
+        <a href="#konstanz" class="nav-local-link">Personal Training Konstanz</a>
+        <a href="#kontakt" class="nav-cta-btn">Erstgespräch anfragen</a>
+      </nav>
+    </header>
+
+    <!-- Center Stage: Radically focused on HL, Subline and 1 Button -->
+    <div class="hero-inner">
+      <div class="hero-content">
+
+        <h1 class="hero-headline">
+          Du funktionierst.<br>
+          <span class="accent-question">Aber performst du noch?</span>
+        </h1>
+
+        <p class="hero-subline">
+          Wenn Müdigkeit, abnehmende Belastbarkeit und schleichender Leistungsabfall deinen Alltag bestimmen, ist es
+          keine fehlende Disziplin – sondern dein Hormonhaushalt. Wir bringen dein Testosteron und deine vitale Energie
+          messbar zurück auf Top-Level.
+        </p>
+
+        <div class="cta-group">
+          <a href="#kontakt" class="btn-toggle-switch">
+            <div class="switch-bg"></div>
+            <div class="switch-knob">
+              <svg viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="signet-circle"
+                  d="M48.5,1.3v4.7c13.9,4.3,24,17.2,24,32.5s-15.3,34-34,34S4.5,57.3,4.5,38.5,14.6,10.3,28.5,6V1.3C12.1,5.8,0,20.7,0,38.5s17.3,38.5,38.5,38.5,38.5-17.3,38.5-38.5S64.9,5.8,48.5,1.3Z" />
+                <path class="signet-bar"
+                  d="M40.7,0v17.8h-4.5V0c.4,0,.8,0,1.3,0,.3,0,.7,0,1,0s.7,0,1,0c.4,0,.8,0,1.3,0Z" />
+              </svg>
+            </div>
+            <span class="switch-text">Kostenloses Erstgespräch anfragen</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       SECTION: VERTICAL FLOW STATUS QUO / STICKY NOBLE POWER BUTTON
+       ============================================================ -->
+  <section class="symptom-section-wrapper" id="system">
+    <div class="symptom-section">
+
+      <!-- Section Header -->
+      <div class="minimal-section-header">
+        <div class="minimal-eyebrow">— DER STATUS QUO</div>
+        <h2 class="minimal-section-title">Erkennst du dich hier wieder?</h2>
+      </div>
+
+      <!-- 2-Column Minimal Layout -->
+      <div class="minimal-grid">
+
+        <!-- Left: Sticky Centered Power Button (Noble, slim, pulsating glow) -->
+        <div class="minimal-power-col">
+          <div class="sticky-power-stage">
+            <div class="power-ambient-glow" id="powerAmbientGlow"></div>
+            <div class="power-icon-wrap">
+              <svg viewBox="0 0 200 200">
+                <!-- Background track with flat butt cut-offs -->
+                <path class="power-track" d="M 130.51 31.48 A 75 75 0 1 1 69.49 31.48" />
+                <!-- Dynamic Discharging Arc with flat butt cut-offs -->
+                <path class="power-arc" id="powerArc" d="M 130.51 31.48 A 75 75 0 1 1 69.49 31.48" />
+                <!-- Center Power Bar with sharp 90-degree corners & slim width sticking out the top -->
+                <rect class="power-bar" id="powerBar" x="97.25" y="12" width="5.5" height="58" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The 5 Points flowing vertically with Wandering Line -->
+        <div class="minimal-points-col" id="pointsCol">
+
+          <!-- Architectural Floating Wandering Line (No grey guideline) -->
+          <div class="points-track-wrapper">
+            <div class="wandering-line" id="wanderingLine"></div>
+          </div>
+
+          <!-- Point 1 -->
+          <div class="minimal-point active" data-step="1">
+            <div class="point-content">
+              <h3 class="point-title">Das Erwachen ohne Regeneration</h3>
+              <p class="point-text">
+                Du wachst nach 7 bis 8 Stunden Schlaf auf, fühlst dich aber wie gerädert. Der erste Kaffee ist
+                längst kein Genuss mehr, sondern die zwingende Notwendigkeit, um überhaupt in die Gänge zu kommen.
+              </p>
+            </div>
+          </div>
+
+          <!-- Point 2 -->
+          <div class="minimal-point" data-step="2">
+            <div class="point-content">
+              <h3 class="point-title">Das 14:00-Uhr-Loch & Brain Fog</h3>
+              <p class="point-text">
+                Früher hattest du diesen messerscharfen Tunnelblick und unerschöpflichen Drive bis in den Abend.
+                Heute musst du dich ab 14 Uhr durch Termine kämpfen, während der Kopf träge wird und die
+                Konzentration schwindet.
+              </p>
+            </div>
+          </div>
+
+          <!-- Point 3 -->
+          <div class="minimal-point" data-step="3">
+            <div class="point-content">
+              <h3 class="point-title">Der Körper verändert sich gegen deinen Willen</h3>
+              <p class="point-text">
+                Obwohl du diszipliniert trainierst und auf deine Ernährung achtest: Das hartnäckige Bauchfett
+                bleibt, der Körper verliert seine gewohnte Härte und nach dem Sport brauchst du Tage statt Stunden
+                zur Regeneration.
+              </p>
+            </div>
+          </div>
+
+          <!-- Point 4 -->
+          <div class="minimal-point" data-step="4">
+            <div class="point-content">
+              <h3 class="point-title">Die dünne Zündschnur im Alltag</h3>
+              <p class="point-text">
+                Was dich früher kalt gelassen hätte, geht dir heute direkt an die Nerven. Deine Stresstoleranz sinkt,
+                selbst kleine Konflikte oder Verzögerungen erzeugen innere Unruhe – und die gewohnte gelassene
+                Souveränität weicht ständiger Anspannung.
+              </p>
+            </div>
+          </div>
+
+          <!-- Point 5 -->
+          <div class="minimal-point" data-step="5">
+            <div class="point-content">
+              <h3 class="point-title">Die Beruhigungspille vom Hausarzt</h3>
+              <p class="point-text">
+                Du machst ein großes Blutbild und hörst vom Hausarzt: <em>„Für Ihr Alter ist alles im
+                  Normbereich.“</em> Doch der statistische Normbereich vergleicht dich mit Kranken und 80-Jährigen
+                – nicht mit deinem persönlichen Peak-Level.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Minimal Conclusion & Bridge -->
+      <div class="minimal-conclusion">
+        <div class="conclusion-quote">
+          Wenn du an mindestens zwei Punkten genickt hast: Es ist keine mangelnde Disziplin.<br>
+          <span>Dein biologisches System läuft im Notbetrieb.</span>
+        </div>
+        <a href="#prime-code" class="minimal-reboot-btn">
+          <span>Prime Code™ entdecken</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION: PRIME CODE™ / THE RECHARGING CENTER REACTOR CORE
+       ============================================================ -->
+  <section class="prime-section-wrapper" id="prime-code">
+    <div class="prime-container">
+
+      <!-- Section Header -->
+      <div class="prime-header">
+        <span class="prime-eyebrow">— DIE TRANSFORMATION: DER PRIME CODE™</span>
+        <h2 class="prime-title">
+          Vom Notbetrieb zurück zur <span class="accent-text">Peak-Performance.</span>
+        </h2>
+        <p class="prime-lead">
+          Vergiss Standard-Diäten und sinnlose Quälerei im Fitnessstudio. Wenn deine Hormone blockiert sind, verbrennt jede zusätzliche Anstrengung nur noch mehr Energie. Der Prime Code™ re-kalibriert deine Biochemie datenbasiert – und lädt deinen Akku Schritt für Schritt wieder auf 100 %.
+        </p>
+      </div>
+
+      <!-- Center Stage: The Majestic Reactor Core -->
+      <div class="prime-reactor-stage">
+        <div class="reactor-core-outer">
+          <div class="reactor-ambient-aura" id="reactorAura"></div>
+          <div class="reactor-core-svg-wrap">
+            <svg viewBox="0 0 200 200">
+              <!-- Background Track -->
+              <path class="reactor-track" d="M 130.51 31.48 A 75 75 0 1 1 69.49 31.48" />
+              <!-- Dynamic Charging Arc -->
+              <path class="reactor-arc" id="reactorArc" d="M 130.51 31.48 A 75 75 0 1 1 69.49 31.48" />
+              <!-- Center Bar with sharp 90-degree corners -->
+              <rect class="reactor-bar" id="reactorBar" x="97.25" y="12" width="5.5" height="58" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- HUD Display & Interactive Phase Pills -->
+        <div class="reactor-hud-display">
+          <div class="reactor-status-badge" id="reactorBadge">
+            <span class="reactor-status-dot"></span>
+            <span id="reactorBadgeText">SYSTEM-STATUS: 100% PEAK STATE</span>
+          </div>
+
+          <div class="reactor-selector-pills" id="reactorPills">
+            <button class="reactor-pill" data-phase="1">01 Diagnostik (33%)</button>
+            <button class="reactor-pill" data-phase="2">02 Re-Kalibrierung (66%)</button>
+            <button class="reactor-pill" data-phase="3">03 Peak Training (100%)</button>
+            <button class="reactor-pill active" data-phase="all">Alle Phasen (100%)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Pillars Cards Grid (Bento Style) -->
+      <div class="prime-grid" id="primeGrid">
+
+        <!-- Pillar 01 -->
+        <div class="prime-card" data-phase="1">
+          <div class="card-top">
+            <div class="card-pill-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span>Phase 01 / Fundament</span>
+            </div>
+            <h3 class="card-title">Biochemische Tiefenanalyse</h3>
+            <p class="card-desc">
+              Wir messen, was der Hausarzt ignoriert: Echtes freies Testosteron, DHEA, Cortisol-Tagesprofil, SHBG, Schilddrüsen- und Entzündungsmarker.
+            </p>
+
+            <ul class="card-features">
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Vollständiges Hormon- & Vitalprofil</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Aufdecken versteckter Energie- und Cortisol-Lecks</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Vergleich mit Top-Performern statt 80-Jährigen</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-energy-meter">
+            <div class="meter-label-row">
+              <span>System-Ladung</span>
+              <span class="meter-val">33%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill" style="width: 33%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 02 -->
+        <div class="prime-card" data-phase="2">
+          <div class="card-top">
+            <div class="card-pill-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+              <span>Phase 02 / Re-Kalibrierung</span>
+            </div>
+            <h3 class="card-title">Hormonelle Re-Architektur</h3>
+            <p class="card-desc">
+              Dein Körper wird von chronischem Stress auf maximale Fettverbrennung, Hormonsynthese und tiefe nächtliche Zellregeneration umprogrammiert.
+            </p>
+
+            <ul class="card-features">
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Tiefschlaf-Architektur: Erholung messbar verdoppeln</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Gezieltes Mikronährstoff- & Adaptogen-Cluster</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>100% alltagstauglich für fordernde 60h-Wochen</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-energy-meter">
+            <div class="meter-label-row">
+              <span>System-Ladung</span>
+              <span class="meter-val">66%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill" style="width: 66%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 03 -->
+        <div class="prime-card" data-phase="3">
+          <div class="card-top">
+            <div class="card-pill-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>Phase 03 / Peak State</span>
+            </div>
+            <h3 class="card-title">High-Impact Reiztraining</h3>
+            <p class="card-desc">
+              Keine zeitraubenden 5 Einheiten pro Woche. 2–3 hocheffiziente Einheiten genügen, um hartnäckiges Bauchfett zu schmelzen und Muskelhärte aufzubauen.
+            </p>
+
+            <ul class="card-features">
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Maximaler hormoneller Stimulus in minimaler Zeit</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Gezielte Hypertrophie ohne Gelenküberlastung</span>
+              </li>
+              <li class="card-feature-item">
+                <svg class="card-feature-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Dauerhafte Leistungsfähigkeit & messerscharfer Fokus</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-energy-meter">
+            <div class="meter-label-row">
+              <span>System-Ladung</span>
+              <span class="meter-val">100%</span>
+            </div>
+            <div class="meter-bar-track">
+              <div class="meter-bar-fill" style="width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Conversion CTA Banner -->
+      <div class="prime-cta-banner">
+        <div class="cta-banner-text">
+          <h3>Bereit, dein System wieder auf 100 % hochzufahren?</h3>
+          <p>
+            Im unverbindlichen Erstgespräch analysieren wir deinen aktuellen Status Quo und prüfen, wie dein hormoneller Prime Code™ in deinem Alltag konkret aussieht.
+          </p>
+        </div>
+        <a href="#kontakt" class="cta-banner-btn">
+          <span>Kostenloses Erstgespräch anfragen</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    /* ============================================================
+       1. Dynamic Interactive Mouse Glow Layer
+       ============================================================ */
+    const glow = document.getElementById('mouse-glow');
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+    let isMoving = false;
+
+    window.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      if (!isMoving) {
+        glow.style.opacity = '1';
+        isMoving = true;
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+      isMoving = false;
+    });
+
+    function animateGlow() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      glow.style.transform = `translate(${currentX - 160}px, ${currentY - 160}px)`;
+      requestAnimationFrame(animateGlow);
+    }
+    requestAnimationFrame(animateGlow);
+
+    /* ============================================================
+       2. Power Button Energy Drain & Magnetic Scroll Lock
+          - Smooth ease-in-and-out scroll lock between 5 points
+          - Aligns sticky power button and active text at 50vh
+          - Traveling accent line glides smoothly from point to point
+          - At Step 5, Power Button is completely drained / empty (0%)
+       ============================================================ */
+    const points = Array.from(document.querySelectorAll('.minimal-point'));
+    const powerArc = document.getElementById('powerArc');
+    const powerBar = document.getElementById('powerBar');
+    const powerAmbientGlow = document.getElementById('powerAmbientGlow');
+    const wanderingLine = document.getElementById('wanderingLine');
+    const trackWrapper = document.querySelector('.points-track-wrapper');
+    const systemSection = document.getElementById('system');
+
+    // 5 Stages of Energy Drain: Step 5 is completely empty / depleted
+    const stepStates = {
+      1: { offset: 0, color: '#FF6D29', barOpacity: 1, glowOpacity: 0.55, filter: 'drop-shadow(0 0 8px rgba(255, 109, 41, 0.35))' },
+      2: { offset: 102, color: '#FF6D29', barOpacity: 0.8, glowOpacity: 0.4, filter: 'drop-shadow(0 0 6px rgba(255, 109, 41, 0.25))' },
+      3: { offset: 204, color: '#FF6D29', barOpacity: 0.6, glowOpacity: 0.25, filter: 'drop-shadow(0 0 5px rgba(255, 109, 41, 0.2))' },
+      4: { offset: 306, color: '#E04A26', barOpacity: 0.35, glowOpacity: 0.12, filter: 'drop-shadow(0 0 3px rgba(224, 74, 38, 0.2))' },
+      5: { offset: 408.4, color: 'transparent', barOpacity: 0, glowOpacity: 0, filter: 'none' }
+    };
+
+    let currentStep = 1;
+    let isSnapping = false;
+    let snapRafId = null;
+
+    function applyPowerState(step) {
+      const state = stepStates[step] || stepStates[1];
+      if (powerArc) {
+        powerArc.style.strokeDashoffset = state.offset;
+        powerArc.style.stroke = state.color;
+        powerArc.style.filter = state.filter;
+      }
+      if (powerBar) {
+        powerBar.style.fill = state.color === 'transparent' ? '#332426' : state.color;
+        powerBar.style.opacity = state.barOpacity;
+        powerBar.style.filter = state.filter;
+      }
+      if (powerAmbientGlow) {
+        powerAmbientGlow.style.opacity = state.glowOpacity;
+      }
+    }
+
+    // Moves the vertical accent line alongside the text so it glides from point to point
+    function updateWanderingLine(step) {
+      const activePoint = points[step - 1];
+      if (!activePoint || !wanderingLine || !trackWrapper) return;
+
+      const trackRect = trackWrapper.getBoundingClientRect();
+      const pointRect = activePoint.getBoundingClientRect();
+
+      const offsetTop = pointRect.top - trackRect.top;
+      const height = pointRect.height;
+
+      wanderingLine.style.transform = `translateY(${offsetTop}px)`;
+      wanderingLine.style.height = `${height}px`;
+    }
+
+    function setActivePoint(step) {
+      currentStep = step;
+      points.forEach((p, idx) => {
+        if (idx + 1 === step) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+      applyPowerState(step);
+      updateWanderingLine(step);
+    }
+
+    // Calculates the exact scrollY where the point's vertical center aligns with 50vh
+    function getPointTargetScrollY(step) {
+      const point = points[step - 1];
+      if (!point) return window.scrollY;
+      const rect = point.getBoundingClientRect();
+      const currentPointCenter = rect.top + rect.height * 0.5;
+      const desiredCenter = window.innerHeight * 0.5;
+      return Math.round(window.scrollY + (currentPointCenter - desiredCenter));
+    }
+
+    // Custom Ease-in-and-out cubic function for silky acceleration & deceleration
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function smoothScrollToTarget(targetY, duration = 650, callback) {
+      if (snapRafId) cancelAnimationFrame(snapRafId);
+      isSnapping = true;
+
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const startTime = performance.now();
+
+      function stepAnimation(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeInOutCubic(progress);
+
+        window.scrollTo(0, startY + distance * eased);
+
+        if (progress < 1) {
+          snapRafId = requestAnimationFrame(stepAnimation);
+        } else {
+          window.scrollTo(0, targetY);
+          snapRafId = null;
+          setTimeout(() => {
+            isSnapping = false;
+            if (callback) callback();
+          }, 90);
+        }
+      }
+
+      snapRafId = requestAnimationFrame(stepAnimation);
+    }
+
+    function jumpToStep(step) {
+      if (step < 1 || step > points.length) return;
+      setActivePoint(step);
+      const targetY = getPointTargetScrollY(step);
+      smoothScrollToTarget(targetY, 680);
+    }
+
+    // Wheel Event: Intercepts wheel scroll to lock and ease into each point cleanly
+    let lastWheelTime = 0;
+    window.addEventListener('wheel', (e) => {
+      const p1Target = getPointTargetScrollY(1);
+      const pLastTarget = getPointTargetScrollY(points.length);
+
+      // Are we in the scroll-lock zone?
+      const inZone = window.scrollY >= p1Target - 100 && window.scrollY <= pLastTarget + 100;
+
+      // If scrolling down from hero and reaching top of section, smoothly lock to Step 1
+      if (!inZone) {
+        const secRect = systemSection.getBoundingClientRect();
+        if (e.deltaY > 30 && window.scrollY < p1Target && secRect.top < window.innerHeight * 0.4 && secRect.top > -300) {
+          e.preventDefault();
+          if (!isSnapping) {
+            jumpToStep(1);
+          }
+        }
+        return;
+      }
+
+      // If already snapping, absorb additional wheel pulses
+      if (isSnapping) {
+        e.preventDefault();
+        return;
+      }
+
+      const now = performance.now();
+      if (now - lastWheelTime < 160) {
+        e.preventDefault();
+        return;
+      }
+
+      if (e.deltaY > 20) {
+        // Scrolling Down: Step through 1 -> 2 -> 3 -> 4 -> 5
+        if (currentStep < points.length) {
+          e.preventDefault();
+          lastWheelTime = now;
+          jumpToStep(currentStep + 1);
+        }
+        // If at last step (Step 5): default scroll is allowed to transition smoothly into the conclusion & next section!
+      } else if (e.deltaY < -20) {
+        // Scrolling Up: Step through 5 -> 4 -> 3 -> 2 -> 1
+        if (currentStep > 1) {
+          e.preventDefault();
+          lastWheelTime = now;
+          jumpToStep(currentStep - 1);
+        }
+        // If at step 1: default scroll is allowed to smoothly return to the hero!
+      }
+    }, { passive: false });
+
+    // Click navigation for points
+    points.forEach((point, idx) => {
+      point.addEventListener('click', () => {
+        jumpToStep(idx + 1);
+      });
+    });
+
+    // Keyboard Arrow navigation (ArrowDown / ArrowUp)
+    window.addEventListener('keydown', (e) => {
+      const p1Target = getPointTargetScrollY(1);
+      const pLastTarget = getPointTargetScrollY(points.length);
+      const inZone = window.scrollY >= p1Target - 120 && window.scrollY <= pLastTarget + 120;
+
+      if (!inZone || isSnapping) return;
+
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        if (currentStep < points.length) {
+          e.preventDefault();
+          jumpToStep(currentStep + 1);
+        }
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        if (currentStep > 1) {
+          e.preventDefault();
+          jumpToStep(currentStep - 1);
+        }
+      }
+    });
+
+    // Touch swipe navigation for mobile / trackpad touch
+    let touchStartY = null;
+    window.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      if (touchStartY === null || isSnapping) return;
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+      touchStartY = null;
+
+      const p1Target = getPointTargetScrollY(1);
+      const pLastTarget = getPointTargetScrollY(points.length);
+      const inZone = window.scrollY >= p1Target - 100 && window.scrollY <= pLastTarget + 100;
+
+      if (inZone && Math.abs(deltaY) > 45) {
+        if (deltaY > 0 && currentStep < points.length) {
+          jumpToStep(currentStep + 1);
+        } else if (deltaY < 0 && currentStep > 1) {
+          jumpToStep(currentStep - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Passive scroll listener for manual scrollbar drags with magnetic alignment
+    let scrollEndTimer = null;
+    window.addEventListener('scroll', () => {
+      if (isSnapping) return;
+
+      const viewportCenter = window.innerHeight * 0.5;
+      let closestStep = currentStep;
+      let minDistance = Infinity;
+
+      points.forEach((point, idx) => {
+        const rect = point.getBoundingClientRect();
+        const pointCenter = rect.top + rect.height * 0.5;
+        const dist = Math.abs(pointCenter - viewportCenter);
+
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestStep = idx + 1;
+        }
+      });
+
+      if (closestStep !== currentStep && minDistance < 140) {
+        setActivePoint(closestStep);
+      }
+
+      // Magnetic snap after manual scrollbar drag ends
+      clearTimeout(scrollEndTimer);
+      const p1Target = getPointTargetScrollY(1);
+      const pLastTarget = getPointTargetScrollY(points.length);
+      if (window.scrollY >= p1Target - 80 && window.scrollY <= pLastTarget + 80) {
+        scrollEndTimer = setTimeout(() => {
+          if (!isSnapping && minDistance > 12 && minDistance < 160) {
+            jumpToStep(closestStep);
+          }
+        }, 180);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      updateWanderingLine(currentStep);
+    });
+
+    // Initialize with Step 1
+    setActivePoint(1);
+
+    /* ============================================================
+       3. Prime Code™ / Center Reactor Core Energy Recharging Logic
+       ============================================================ */
+    const reactorArc = document.getElementById('reactorArc');
+    const reactorBar = document.getElementById('reactorBar');
+    const reactorAura = document.getElementById('reactorAura');
+    const reactorBadge = document.getElementById('reactorBadge');
+    const reactorBadgeText = document.getElementById('reactorBadgeText');
+    const reactorPills = Array.from(document.querySelectorAll('.reactor-pill'));
+    const primeCards = Array.from(document.querySelectorAll('.prime-card'));
+    const primeSection = document.getElementById('prime-code');
+
+    const reactorStates = {
+      1: {
+        offset: 273.6,
+        color: '#FF6D29',
+        barOpacity: 0.45,
+        auraOpacity: 0.4,
+        text: 'PHASE 01: 33% FUNDAMENT AKTIV',
+        filter: 'drop-shadow(0 0 8px rgba(255, 109, 41, 0.4))'
+      },
+      2: {
+        offset: 138.8,
+        color: '#FF6D29',
+        barOpacity: 0.75,
+        auraOpacity: 0.65,
+        text: 'PHASE 02: 66% HORMON-RESET AKTIV',
+        filter: 'drop-shadow(0 0 12px rgba(255, 109, 41, 0.55))'
+      },
+      3: {
+        offset: 0,
+        color: '#FF6D29',
+        barOpacity: 1,
+        auraOpacity: 0.85,
+        text: 'PHASE 03: 100% PEAK STATE ERREICHT',
+        filter: 'drop-shadow(0 0 16px rgba(255, 109, 41, 0.75))'
+      },
+      'all': {
+        offset: 0,
+        color: '#FF6D29',
+        barOpacity: 1,
+        auraOpacity: 0.85,
+        text: 'SYSTEM-STATUS: 100% PEAK STATE',
+        filter: 'drop-shadow(0 0 16px rgba(255, 109, 41, 0.75))'
+      }
+    };
+
+    function setReactorPhase(phase) {
+      const state = reactorStates[phase] || reactorStates['all'];
+      if (reactorArc) {
+        reactorArc.style.strokeDashoffset = state.offset;
+        reactorArc.style.stroke = state.color;
+        reactorArc.style.filter = state.filter;
+      }
+      if (reactorBar) {
+        reactorBar.style.fill = state.color;
+        reactorBar.style.opacity = state.barOpacity;
+        reactorBar.style.filter = state.filter;
+      }
+      if (reactorAura) {
+        reactorAura.style.opacity = state.auraOpacity;
+      }
+      if (reactorBadgeText) {
+        reactorBadgeText.textContent = state.text;
+      }
+
+      // Update pills
+      reactorPills.forEach(pill => {
+        if (pill.dataset.phase === String(phase)) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+
+      // Update cards highlight
+      primeCards.forEach(card => {
+        if (phase === 'all' || card.dataset.phase === String(phase)) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+    }
+
+    // Pill click listeners
+    reactorPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        setReactorPhase(pill.dataset.phase);
+      });
+    });
+
+    // Card click / hover listeners
+    primeCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        setReactorPhase(card.dataset.phase);
+      });
+      card.addEventListener('click', () => {
+        setReactorPhase(card.dataset.phase);
+      });
+    });
+
+    // Return to 100% all phases when mouse leaves grid
+    const primeGrid = document.getElementById('primeGrid');
+    if (primeGrid) {
+      primeGrid.addEventListener('mouseleave', () => {
+        const activePill = reactorPills.find(p => p.classList.contains('active'));
+        if (!activePill || activePill.dataset.phase === 'all') {
+          setReactorPhase('all');
+        }
+      });
+    }
+
+    // Dramatic Entrance Animation when entering Prime Code section
+    let hasAnimatedPrimeEntrance = false;
+    const primeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimatedPrimeEntrance) {
+          hasAnimatedPrimeEntrance = true;
+          // Start with depleted 0%
+          if (reactorArc) reactorArc.style.strokeDashoffset = 408.4;
+          if (reactorBar) reactorBar.style.opacity = 0;
+          if (reactorAura) reactorAura.style.opacity = 0;
+          if (reactorBadgeText) reactorBadgeText.textContent = 'SYSTEM-REBOOT WIRD INITIALISIERT...';
+
+          // Sequence: 0% -> 33% (Phase 1) -> 66% (Phase 2) -> 100% (All)
+          setTimeout(() => setReactorPhase(1), 350);
+          setTimeout(() => setReactorPhase(2), 1050);
+          setTimeout(() => setReactorPhase('all'), 1800);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    if (primeSection) {
+      primeObserver.observe(primeSection);
+    }
+  </script>
+</body>
+
+</html>
