@@ -153,7 +153,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 10002;
+      z-index: 10020;
       background: transparent;
       border-bottom: none;
       box-shadow: none;
@@ -442,24 +442,30 @@
     /* Mobile Menu Toggle Button (Touch Friendly, Subtle Minimalist) */
     .mobile-menu-btn {
       display: none;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      width: 40px;
-      height: 40px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      width: 44px;
+      height: 44px;
       cursor: pointer;
       position: relative;
-      z-index: 10003;
+      z-index: 10025;
       padding: 0;
       align-items: center;
       justify-content: center;
       color: #FFFFFF;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: color 0.25s ease;
     }
 
-    .mobile-menu-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
+    .mobile-menu-btn:hover,
+    .mobile-menu-btn:active {
+      background: transparent;
+      border-color: transparent;
+      color: var(--color-accent);
+    }
+
+    .mobile-menu-btn.active {
+      color: var(--color-accent);
     }
 
     .mobile-menu-btn:focus-visible {
@@ -467,81 +473,63 @@
       outline-offset: 2px;
     }
 
-    .mobile-menu-btn svg {
-      width: 20px;
-      height: 14px;
+    .mobile-menu-btn .burger-icon {
+      width: 24px;
+      height: 18px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mobile-menu-btn .burger-line {
       display: block;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      border-radius: 1px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.25s ease,
+                  background-color 0.25s ease;
+      transform-origin: center;
+    }
+
+    /* Morph: 3 Lines -> X */
+    .mobile-menu-btn.active .burger-line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-btn.active .burger-line:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .mobile-menu-btn.active .burger-line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
     }
 
     /* Mobile Nav Fullscreen Overlay */
     .mobile-nav-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(23, 18, 23, 0.97);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      z-index: 10004;
+      background: rgba(18, 14, 18, 0.78);
+      backdrop-filter: blur(36px) saturate(160%);
+      -webkit-backdrop-filter: blur(36px) saturate(160%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 10010;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
       visibility: hidden;
       padding: 24px;
     }
 
     .mobile-nav-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: max(12px, env(safe-area-inset-top)) 16px 12px 16px;
-      z-index: 10010;
-    }
-
-    .mobile-nav-logo img {
-      height: 30px;
-      width: auto;
-      display: block;
-    }
-
-    .mobile-nav-close-btn {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      color: #FFFFFF;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      padding: 0;
-    }
-
-    .mobile-nav-close-btn:hover,
-    .mobile-nav-close-btn:active {
-      background: rgba(255, 109, 41, 0.12);
-      border-color: rgba(255, 109, 41, 0.4);
-      color: var(--color-accent);
-      transform: scale(1.04);
-    }
-
-    .mobile-nav-close-btn:focus-visible {
-      outline: 2px solid var(--color-accent);
-      outline-offset: 2px;
-    }
-
-    .mobile-nav-close-btn svg {
-      width: 20px;
-      height: 20px;
-      display: block;
+      display: none;
     }
 
     .mobile-nav-overlay.open {
@@ -586,11 +574,8 @@
       overflow: hidden;
       isolation: isolate;
       margin-top: 14px;
-      background:
-        radial-gradient(110px 70px at 20% 50%, rgba(255, 109, 41, 0.22) 0%, rgba(255, 109, 41, 0) 100%),
-        linear-gradient(180deg, rgba(32, 25, 32, 0.92) 0%, rgba(16, 12, 16, 0.96) 100%);
-      color: rgba(255, 255, 255, 0.94) !important;
-      border: 1px solid rgba(255, 109, 41, 0.32);
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 160, 110, 0.6);
       text-decoration: none;
       padding: 16px 36px;
       border-radius: 9999px;
@@ -598,10 +583,11 @@
       font-size: 15px;
       letter-spacing: 0.02em;
       box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.6),
-        0 0 20px rgba(255, 109, 41, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.14);
-      transition: all 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+        0 14px 34px rgba(255, 109, 41, 0.35),
+        0 0 24px rgba(255, 109, 41, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      animation: switchAuraPulse 3.2s ease-in-out infinite;
+      transition: transform 0.2s ease, filter 0.2s ease;
     }
 
     .mobile-nav-cta::before {
@@ -619,8 +605,8 @@
           rgba(255, 138, 76, 0.98) 100%);
       background-size: 165% 165%, 145% 145%;
       background-position: 0% 50%, 0% 50%;
-      opacity: 0;
-      transition: opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity: 1;
+      animation: switchPlasmaWave 3.4s ease-in-out infinite;
       z-index: -1;
     }
 
@@ -629,16 +615,9 @@
       outline-offset: 3px;
     }
 
-    .mobile-nav-cta:hover {
-      color: #FFFFFF !important;
-      border-color: rgba(255, 160, 110, 0.5);
-      transform: translateY(-1px);
-      animation: switchAuraPulse 3.2s ease-in-out infinite;
-    }
-
-    .mobile-nav-cta:hover::before {
-      opacity: 1;
-      animation: switchPlasmaWave 3.4s ease-in-out infinite;
+    .mobile-nav-cta:active {
+      transform: scale(0.96);
+      filter: brightness(1.1);
     }
 
     /* Hero Center Stage */
@@ -3709,17 +3688,22 @@
         display: flex;
         flex-direction: column;
       }
+      .hero-bg-video {
+        object-position: center center !important;
+        transform: scale(1.08); /* Feine Skalierung damit die Lichtanimation im Hintergrund zentriert & voll zur Geltung kommt */
+      }
       .hero-wrapper::before {
-        background: linear-gradient(180deg,
-          rgba(23, 18, 23, 0.12) 0%,
-          rgba(23, 18, 23, 0.28) 32%,
-          rgba(23, 18, 23, 0.78) 60%,
-          rgba(23, 18, 23, 0.96) 84%,
-          rgba(23, 18, 23, 1) 100%) !important;
+        background: radial-gradient(circle at 50% 38%, rgba(23, 18, 23, 0.0) 0%, rgba(23, 18, 23, 0.45) 55%, rgba(23, 18, 23, 0.95) 88%, rgba(23, 18, 23, 1) 100%),
+                    linear-gradient(180deg,
+                      rgba(23, 18, 23, 0.35) 0%,
+                      rgba(23, 18, 23, 0.1) 30%,
+                      rgba(23, 18, 23, 0.6) 62%,
+                      rgba(23, 18, 23, 0.95) 86%,
+                      rgba(23, 18, 23, 1) 100%) !important;
       }
       .hero-inner {
         grid-template-columns: 1fr;
-        padding: max(84px, calc(env(safe-area-inset-top) + 64px)) 20px max(36px, env(safe-area-inset-bottom)) 20px;
+        padding: max(84px, calc(env(safe-area-inset-top) + 64px)) 20px max(44px, env(safe-area-inset-bottom)) 20px;
         min-height: 100dvh;
         display: flex;
         flex-direction: column;
@@ -3768,32 +3752,80 @@
       .cta-group {
         margin-bottom: 8px;
         width: 100%;
-        max-width: 320px;
+        max-width: 340px;
         display: flex;
         justify-content: center;
       }
+      /* Standard Button Look für alle Buttons auf Mobile (ohne Slider-Knob) */
       .btn-toggle-switch {
         width: 100%;
-        max-width: 320px;
+        max-width: 340px;
         height: 52px;
         box-sizing: border-box;
+        border-radius: 9999px;
+        border: 1px solid rgba(255, 160, 110, 0.6) !important;
+        background: transparent;
+        color: #FFFFFF !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        text-decoration: none;
+        box-shadow: 0 14px 34px rgba(255, 109, 41, 0.35), 0 0 24px rgba(255, 109, 41, 0.2) !important;
+        animation: switchAuraPulse 3.2s ease-in-out infinite;
+        overflow: hidden;
+        position: relative;
+        isolation: isolate;
       }
+      .btn-toggle-switch .switch-bg {
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        border: none !important;
+        background:
+          radial-gradient(140px 90px at 18% 50%, rgba(255, 109, 41, 0.22) 0%, rgba(255, 109, 41, 0) 100%),
+          linear-gradient(180deg, rgba(30, 24, 30, 0.92) 0%, rgba(16, 12, 16, 0.96) 100%) !important;
+        box-shadow: none !important;
+        z-index: 1;
+      }
+      .btn-toggle-switch .switch-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        background:
+          radial-gradient(180px 80px at 78% 50%, rgba(255, 158, 102, 0.55) 0%, rgba(255, 109, 41, 0.15) 55%, rgba(23, 18, 23, 0) 100%),
+          linear-gradient(100deg,
+            rgba(26, 18, 22, 0.95) 0%,
+            rgba(78, 32, 18, 0.92) 22%,
+            rgba(186, 68, 22, 0.94) 48%,
+            rgba(255, 109, 41, 0.96) 76%,
+            rgba(255, 138, 76, 0.98) 100%) !important;
+        background-size: 165% 165%, 145% 145%;
+        background-position: 0% 50%, 0% 50%;
+        opacity: 1 !important;
+        animation: switchPlasmaWave 3.4s ease-in-out infinite;
+        z-index: 2;
+      }
+      /* Knob ausblenden auf Mobile */
       .btn-toggle-switch .switch-knob {
-        width: 40px;
-        height: 40px;
-        left: 6px;
-      }
-      .btn-toggle-switch:hover .switch-knob {
-        left: calc(100% - 40px - 6px);
+        display: none !important;
       }
       .btn-toggle-switch .switch-text {
-        font-size: 13.5px;
-        padding-left: 50px;
-        padding-right: 16px;
+        position: relative;
+        z-index: 3;
+        font-size: 14.5px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: #FFFFFF !important;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+        padding: 0 !important;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
       }
-      .btn-toggle-switch:hover .switch-text {
-        padding-left: 16px;
-        padding-right: 50px;
+      .btn-toggle-switch:active {
+        transform: scale(0.96) !important;
       }
       .coach-indicator {
         display: none;
@@ -3857,17 +3889,12 @@
       }
       .minimal-points-col {
         display: flex !important;
-        flex-direction: row !important;
-        gap: 14px !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-        padding: 4px 20px 12px 20px !important;
-        width: calc(100% + 40px) !important;
-        margin-left: -20px !important;
-        margin-right: -20px !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
         box-sizing: border-box !important;
         border-left: none !important;
       }
@@ -3876,50 +3903,55 @@
       }
       .minimal-point {
         position: relative;
-        min-width: 80vw;
-        max-width: 310px;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
         flex-shrink: 0;
-        scroll-snap-align: center;
         opacity: 1 !important;
         transform: none !important;
         cursor: default;
-        padding: 26px 22px 24px 22px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.008) 100%);
+        padding: 24px 20px 22px 20px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.01) 100%);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-top: 2px solid var(--color-accent);
+        border-left: 3px solid var(--color-accent) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 0;
         box-sizing: border-box;
-        text-align: center;
-        justify-content: center;
+        text-align: left;
+        justify-content: flex-start;
       }
       .minimal-point::before {
-        content: "0" attr(data-step) " / 05";
-        display: block;
-        font-size: 10.5px;
+        content: "SYMPTOM 0" attr(data-step);
+        display: inline-block;
+        font-size: 11px;
         font-weight: 700;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.16em;
         color: var(--color-accent);
-        margin-bottom: 12px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
       }
       .minimal-point .point-content {
-        align-items: center;
+        align-items: flex-start;
+        text-align: left;
       }
       .minimal-point .point-title {
         font-size: 18px;
         font-weight: 800;
-        line-height: 1.22;
+        line-height: 1.25;
         margin-bottom: 10px;
         color: #FFFFFF;
+        text-align: left;
       }
       .minimal-point.active .point-title {
         color: #FFFFFF;
       }
       .minimal-point .point-text {
-        font-size: 13.5px;
-        line-height: 1.62;
+        font-size: 14px;
+        line-height: 1.6;
         font-weight: 400;
         color: var(--text-secondary);
         max-width: 100%;
+        text-align: left;
       }
 
       /* 4. Prime Code Section (Centered Editorial Flow with Generous Chapter Spacing) */
@@ -4492,6 +4524,20 @@
         width: 100%;
         font-size: 14px;
         padding: 16px 18px;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 160, 110, 0.6);
+        animation: switchAuraPulse 3.2s ease-in-out infinite;
+      }
+      .contact-submit-btn::before {
+        opacity: 1;
+        animation: switchPlasmaWave 3.4s ease-in-out infinite;
+      }
+      .contact-submit-btn svg {
+        color: #FFFFFF !important;
+        transform: translateX(3px);
+      }
+      .contact-submit-btn:active {
+        transform: scale(0.96) !important;
       }
       .contact-disclaimer {
         text-align: center;
@@ -4835,11 +4881,11 @@
             <span>Erstgespräch anfragen</span>
           </a>
           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNavOverlay">
-            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <line x1="1" y1="2" x2="19" y2="2" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
-              <line x1="1" y1="7" x2="19" y2="7" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
-              <line x1="1" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
-            </svg>
+            <span class="burger-icon" aria-hidden="true">
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+            </span>
           </button>
         </div>
       </div>
@@ -4847,17 +4893,6 @@
 
     <!-- Mobile Navigation Fullscreen Overlay -->
     <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
-      <div class="mobile-nav-header">
-        <a href="#top" class="mobile-nav-logo" id="mobileNavLogo" aria-label="Silvio Schäfer Startseite">
-          <img src="assets/Signet/4x/orange-white@4x.png" alt="Silvio Schäfer Training & Coaching">
-        </a>
-        <button class="mobile-nav-close-btn" id="mobileNavCloseBtn" aria-label="Menü schließen">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
-            <line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
       <div class="mobile-nav-content">
         <a href="#system" class="mobile-nav-link">Status Quo</a>
         <a href="#ansatz" class="mobile-nav-link">Der Ansatz</a>
@@ -5235,9 +5270,9 @@
             <div class="comparison-stage">
               <div class="comparison-card" id="comparisonCard">
                 <!-- Background: Before -->
-                <div class="compare-layer compare-layer--before" id="compareLayerBefore" style="background-image: url('assets/media/transformations/transformation-01.jpg');"></div>
+                <div class="compare-layer compare-layer--before" id="compareLayerBefore" style="background-image: url('../assets/media/transformations/transformation-01.jpg');"></div>
                 <!-- Foreground: After, clipped dynamically -->
-                <div class="compare-layer compare-layer--after" id="compareLayerAfter" style="background-image: url('assets/media/transformations/transformation-01.jpg');"></div>
+                <div class="compare-layer compare-layer--after" id="compareLayerAfter" style="background-image: url('../assets/media/transformations/transformation-01.jpg');"></div>
 
                 <!-- Subtle Badges -->
                 <span class="compare-badge compare-badge--before">Vorher</span>
@@ -5760,6 +5795,7 @@
     function updateUnifiedPowerAndStory(now) {
       if (!masterPowerStage) return;
 
+      const isMobile = window.innerWidth <= 900;
       const viewportCenter = window.innerHeight * 0.5;
       const screenCenterX = window.innerWidth * 0.5;
       const colRect = powerCol ? powerCol.getBoundingClientRect() : null;
@@ -5771,8 +5807,8 @@
       const lastCenter = p5Rect ? (p5Rect.top + p5Rect.height * 0.5) : 0;
       const storyRect = story ? story.getBoundingClientRect() : null;
 
-      // 1. Proximity illumination for the 5 points & wandering line
-      if (trackWrapper && points.length > 0) {
+      // 1. Proximity illumination for the 5 points & wandering line (Desktop only)
+      if (!isMobile && trackWrapper && points.length > 0) {
         const trackRect = trackWrapper.getBoundingClientRect();
         let closestDist = Infinity;
         let activeIndex = 0;
@@ -5817,7 +5853,6 @@
       }
 
       // 2. Master Power Button State & Physical Glide
-      const isMobile = window.innerWidth <= 900;
       if (isMobile) {
         masterPowerStage.style.display = 'none';
         storyBeats.forEach((beat) => {
@@ -5977,16 +6012,16 @@
     const compDotsTrack = document.getElementById('compareDotsTrack');
 
     const TRANSFORMATION_PAIRS = [
-      { id: 1, title: "Transformation 01", type: "composite", src: "assets/media/transformations/transformation-01.jpg" },
-      { id: 2, title: "Transformation 02", type: "composite", src: "assets/media/transformations/transformation-02.jpg" },
-      { id: 3, title: "Transformation 03", type: "composite", src: "assets/media/transformations/transformation-03.jpg" },
-      { id: 4, title: "Transformation 04", type: "composite", src: "assets/media/transformations/transformation-04.jpg" },
-      { id: 5, title: "Transformation 05", type: "composite", src: "assets/media/transformations/transformation-05.jpg" },
-      { id: 6, title: "Transformation 06", type: "composite", src: "assets/media/transformations/transformation-06.jpg" },
-      { id: 7, title: "Transformation 07", type: "composite", src: "assets/media/transformations/transformation-07.jpg" },
-      { id: 8, title: "Transformation 08", type: "composite", src: "assets/media/transformations/transformation-08.jpg" },
-      { id: 9, title: "Transformation 09", type: "composite", src: "assets/media/transformations/transformation-09.jpg" },
-      { id: 10, title: "Transformation 10", type: "composite", src: "assets/media/transformations/transformation-10.jpg" }
+      { id: 1, title: "Transformation 01", type: "composite", src: "../assets/media/transformations/transformation-01.jpg" },
+      { id: 2, title: "Transformation 02", type: "composite", src: "../assets/media/transformations/transformation-02.jpg" },
+      { id: 3, title: "Transformation 03", type: "composite", src: "../assets/media/transformations/transformation-03.jpg" },
+      { id: 4, title: "Transformation 04", type: "composite", src: "../assets/media/transformations/transformation-04.jpg" },
+      { id: 5, title: "Transformation 05", type: "composite", src: "../assets/media/transformations/transformation-05.jpg" },
+      { id: 6, title: "Transformation 06", type: "composite", src: "../assets/media/transformations/transformation-06.jpg" },
+      { id: 7, title: "Transformation 07", type: "composite", src: "../assets/media/transformations/transformation-07.jpg" },
+      { id: 8, title: "Transformation 08", type: "composite", src: "../assets/media/transformations/transformation-08.jpg" },
+      { id: 9, title: "Transformation 09", type: "composite", src: "../assets/media/transformations/transformation-09.jpg" },
+      { id: 10, title: "Transformation 10", type: "composite", src: "../assets/media/transformations/transformation-10.jpg" }
     ];
 
     let currentPairIdx = 0;
